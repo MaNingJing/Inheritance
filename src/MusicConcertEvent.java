@@ -22,6 +22,7 @@ public class MusicConcertEvent {
         return eventCost;
     }
 
+
     // toString() method to display the details of the concert event
     @Override
     public String toString() {

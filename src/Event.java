@@ -65,7 +65,6 @@ public abstract class Event {
         this.eventCost=eventCost;
     }
 
-
     public int getTotalParticipants(){
         return totalParticipants;
     }
