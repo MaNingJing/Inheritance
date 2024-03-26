@@ -1,41 +1,54 @@
-import java.time.LocalDate;
+//import java.time.LocalDate;
 
-public class PastEvent extends Event  {
-    @SuppressWarnings("unused")
-    private LocalDate eventStartDate;
-    @SuppressWarnings("unused")
-    private LocalDate eventEndDate;
-    private String paymentStatus;
-    private boolean requiresExtension;
-    private static final double eventCost = 10_000;
-  
-    
-    public PastEvent(String eventID,String eventName,String eventLocation,String pointOfContact,int totalParticipants,int totalEventDays, LocalDate eventStartDate, LocalDate eventEndDate, String paymentStatus, boolean requiresExtension) {
-        super(eventID, eventName, eventLocation, pointOfContact, totalEventDays, totalParticipants, totalEventDays);
-        this.eventStartDate = eventStartDate;
-        this.eventEndDate = eventEndDate;
-        this.paymentStatus = paymentStatus;
-        this.requiresExtension = requiresExtension;
-       
-    }
-    
-  
+public class PastEvent{
+
+     public static final double pastEventCost = 10_000;
+     public static final double tax = 0.3;
+     private String paymentStatus;
+     private boolean requiresExtension;
+     private String paymentDetails;
+     private String eventID;
+
+     //private double pastEventCost;
+
+     public PastEvent(String eventID, String eventName, String eventLocation, String pointOfContact, int totalParticipants, int totalEventDays, String string, boolean b) {
+
+     }
+
+     public String getPaymentStatus() {
+        return paymentStatus;
+     }
+
+     public void setPaymentStatus(String status) {
+      this.paymentStatus = status;
+     }
+
+     public boolean getRequiresExtension() {
+      return requiresExtension;
+     }
+
+     public void setRequiresExtension(boolean requiresExtension) {
+      this.requiresExtension = requiresExtension;
+     }
+
+     
     
 
-    private String getPaymentDetails() {
-        return String.format("The event cost was %.2f and the payment status is %s. The Customer requires extension?: &b." ,eventCost, paymentStatus, requiresExtension);
-        
-    }
-    @Override
-    public String toString(){
-        return "Conference Event details: " + "\n" +
-        "Event ID: " + getEventID() + "\n" +
-        "Event Name: " + getEventName() + "\n" +
-        "Event Location: " + getEventLocation() + "\n" +
-        "Total participants: " + getTotalParticipants() + "\n" +
-        "The payment details are as follows: " + "\n" + 
-        getPaymentDetails();
-}
+     public void setPaymentDetails(String paymentStatus, boolean requiresExtension) {
+      this.paymentDetails = "The event cost was " + pastEventCost + " and the payment status is " + paymentStatus + 
+     "\n" + "The Customer requires extension?: " + requiresExtension;
+     }
 
-   
+     public String getPaymentDetails() {
+      return paymentDetails;
+     }
+
+     @Override
+     public String toString(){
+     return "\n"+"Event ID:" + eventID +"\n" + "The past event details: " + "\n" +
+      "The payment details are as follows:"+ "\n" +paymentDetails;
+     }
     }
+     
+    
+    
