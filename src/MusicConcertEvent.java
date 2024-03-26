@@ -1,32 +1,41 @@
-public class MusicConcertEvent {
+public class MusicConcertEvent extends Event implements CalculateEventCostInterface {
+
     private boolean merchandiseRequired;
     private double merchandiseCost;
 
-    // Constructor
-    public MusicConcertEvent(boolean merchandiseRequired, double merchandiseCost) {
+    public MusicConcertEvent(String eventID, String eventName, String eventLocation, String eventPointOfContact, double eventCost, int totalParticipants, int totalEventDays, boolean merchandiseRequired, double merchandiseCost) {
+        super(eventID, eventName, eventLocation, eventPointOfContact, eventCost, totalParticipants, totalEventDays);
         this.merchandiseRequired = merchandiseRequired;
         this.merchandiseCost = merchandiseCost;
     }
 
-    // Method to calculate the event cost
-    public double calculateEventCost() {
-        double eventCost = 0.0;
-        // Add any additional costs or calculations depending on your requirements
-        // For example, if there are ticket costs or additional services
-        // eventCost += ticketCost;
+    
 
-        if (merchandiseRequired) {
-            eventCost += merchandiseCost;
-        }
-        
-        return eventCost;
+    public boolean isMerchandiseRequired() {
+        return merchandiseRequired;
     }
 
+    public void setMerchandiseRequired(boolean merchandiseRequired) {
+        this.merchandiseRequired = merchandiseRequired;
+    }
 
-    // toString() method to display the details of the concert event
+    public double getMerchandiseCost() {
+        return merchandiseCost;
+    }
+
+    public void setMerchandiseCost(double merchandiseCost) {
+        this.merchandiseCost = merchandiseCost;
+    }
+
+    @Override
+    public void calculateEventCost() {
+
+    }
+
     @Override
     public String toString() {
-        return "Music Concert Event: " +
+        return  super.toString() + "\n" + 
+                "Music Concert Event: " +
                 "Merchandise Required: " + merchandiseRequired +
                 ", Merchandise Cost: " + merchandiseCost;
     }

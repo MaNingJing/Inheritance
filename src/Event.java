@@ -1,4 +1,4 @@
-public abstract class Event {
+public class Event {
 
     public static final double insuranceCost=1000.00;
     public static final double tax=0.3;
@@ -85,7 +85,5 @@ public abstract class Event {
     public String toString(){
         return eventID+" "+eventName+" "+eventLocation+" "+eventPointOfContact+" "+eventCost+" "+totalEventDays+" "+totalParticipants;
     }
-
-
-    public abstract void calculateEventCost();
+    
 }

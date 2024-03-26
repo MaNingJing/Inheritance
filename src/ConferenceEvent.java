@@ -1,4 +1,4 @@
-public class  ConferenceEvent extends Event {
+public class ConferenceEvent extends Event implements CalculateEventCostInterface {
     private double breakfastCost;
     private double lunchCost;
     private double dinnerCost;
@@ -42,15 +42,16 @@ public class  ConferenceEvent extends Event {
     }
 
     @Override
-    public  void calculateEventCost(){
-        conferenceEventCost = getEventCost()+((getBreakfastCost()+getLunchCost()+getDinnerCost())*getTotalParticipants()*getTotalEventDays());
+    public void calculateEventCost() {
+        
     }
     
 
     @Override
     public String toString(){
-        //String conferenceEventCost;
-        return "Conference Event details: "+"\n"+
+       
+        return super.toString() + "\n" + 
+        "Conference Event details: "+"\n"+
         "Event ID: "+getEventID()+"\n"+
         "Event Name: "+getEventName()+"\n"+
         "Event Location: "+getEventLocation()+"\n"+
